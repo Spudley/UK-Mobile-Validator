@@ -37,7 +37,7 @@ class UKMobileValidator {
 	public static function formatMobile($mobileNumber)
 	{
 		if ( self::validMobileNumber($mobileNumber) ) {
-			return '07'.substr($mobileNumber, -9, 9);
+			return '07'.substr(preg_replace('/\s+/', '', $mobileNumber), -9, 9);
 		} else {
 			return $mobileNumber;
 		}
@@ -55,7 +55,8 @@ class UKMobileValidator {
 	public static function formatMobileInternational($mobileNumber)
 	{
 		if ( self::validMobileNumber($mobileNumber) ) {
-			return '+447'.substr($mobileNumber, -9, 9);
+			
+			return '+447'.substr(preg_replace('/\s+/', '', $mobileNumber), -9, 9);
 		} else {
 			return $mobileNumber;
 		}
