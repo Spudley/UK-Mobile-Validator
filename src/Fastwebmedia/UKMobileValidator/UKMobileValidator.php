@@ -3,25 +3,25 @@
 class UKMobileValidator {
 		
 	/**
-	 * checkMobileNumber function.
+	 * validMobileNumber function.
 	 * 
 	 * @param string UK Mobile Number
 	 * @access public
 	 * @return boolean
 	 */
-	public static function checkMobileNumber( $value )
+	public static function validMobileNumber( $value )
 	{
 		return preg_match('/^(\+44|0044|44|0)7\d{9}$/', preg_replace('/\s+/', '', $value)) === 1;
 	}
 	
 	/**
-	 * checkMobileNumberInternational function.
+	 * validMobileNumberInternational function.
 	 * 
 	 * @param string International UK Mobile Number
 	 * @access public
 	 * @return boolean
 	 */
-	public static function checkMobileNumberInternational( $value )
+	public static function validMobileNumberInternational( $value )
 	{
 		return preg_match('/^\+447\d{9}$/', preg_replace('/\s+/', '', $value)) === 1;
 	}
@@ -36,7 +36,7 @@ class UKMobileValidator {
 	 */
 	public static function formatMobile($mobileNumber)
 	{
-		if ( self::checkMobileNumber($mobileNumber) ) {
+		if ( self::validMobileNumber($mobileNumber) ) {
 			return '07'.substr($mobileNumber, -9, 9);
 		} else {
 			return $mobileNumber;
@@ -54,7 +54,7 @@ class UKMobileValidator {
 	 */
 	public static function formatMobileInternational($mobileNumber)
 	{
-		if ( self::checkMobileNumber($mobileNumber) ) {
+		if ( self::validMobileNumber($mobileNumber) ) {
 			return '+447'.substr($mobileNumber, -9, 9);
 		} else {
 			return $mobileNumber;

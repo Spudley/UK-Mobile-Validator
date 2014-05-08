@@ -26,7 +26,7 @@ class UKMobileValidatorTest extends \Orchestra\Testbench\TestCase {
 	public function it_validates_a_mobile_with_valid_params($mobileNumber)
 	{
 		
-		$result = UKMobileValidator::checkMobileNumber($mobileNumber);
+		$result = UKMobileValidator::validMobileNumber($mobileNumber);
 		$this->assertTrue($result);
 	}
 
@@ -59,7 +59,7 @@ class UKMobileValidatorTest extends \Orchestra\Testbench\TestCase {
 	 */
 	public function it_validates_a_fq_mobile_with_valid_params($mobileNumber)
 	{
-		$result = UKMobileValidator::checkMobileNumberInternational($mobileNumber);
+		$result = UKMobileValidator::validMobileNumberInternational($mobileNumber);
 		$this->assertTrue($result);
 	}
 
@@ -84,7 +84,7 @@ class UKMobileValidatorTest extends \Orchestra\Testbench\TestCase {
 	 */
 	public function it_validates_a_fq_mobile_with_invalid_params($mobileNumber)
 	{
-		$result = $result = UKMobileValidator::checkMobileNumberInternational($mobileNumber);
+		$result = $result = UKMobileValidator::validMobileNumberInternational($mobileNumber);
 		$this->assertFalse($result);
 	}
 
@@ -94,7 +94,7 @@ class UKMobileValidatorTest extends \Orchestra\Testbench\TestCase {
 	 */
 	public function it_validates_a_mobile_with_invalid_params($mobileNumber)
 	{
-		$result = $result = UKMobileValidator::checkMobileNumberInternational($mobileNumber);
+		$result = $result = UKMobileValidator::validMobileNumberInternational($mobileNumber);
 		$this->assertFalse($result);
 	}
 	
@@ -112,7 +112,7 @@ public static function provider_for_it_formats_mobile_number_correctly()
 	public function it_formats_mobile_number_correctly($mobileNumber)
 	{
 		$formattedMobileNumber = UKMobileValidator::formatMobile($mobileNumber);
-		$result = UKMobileValidator::checkMobileNumber( $formattedMobileNumber);
+		$result = UKMobileValidator::validMobileNumber( $formattedMobileNumber);
 		
 		$this->assertTrue($result);
 	}
@@ -132,7 +132,7 @@ public static function provider_for_it_formats_mobile_number_correctly()
 	public function it_formats_international_mobile_number_correctly($mobileNumber)
 	{
 		$formattedMobileNumber = UKMobileValidator::formatMobileInternational($mobileNumber);
-		$result = UKMobileValidator::checkMobileNumberInternational( $formattedMobileNumber);
+		$result = UKMobileValidator::validMobileNumberInternational( $formattedMobileNumber);
 		
 		$this->assertTrue($result);
 	}
