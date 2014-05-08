@@ -101,7 +101,8 @@ class UKMobileValidatorTest extends \Orchestra\Testbench\TestCase {
 public static function provider_for_it_formats_mobile_number_correctly()
 	{
 		return array(
-			array('07111444555')
+			array('07111444555'),
+			array('07111 444555')
 		);
 	}
 
@@ -121,7 +122,8 @@ public static function provider_for_it_formats_mobile_number_correctly()
 	public static function provider_for_it_formats_international_mobile_number_correctly()
 	{
 		return array(
-			array('07111444555')
+			array('07111444555'),
+			array('07111 444555')
 		);
 	}
 
