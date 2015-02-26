@@ -1,12 +1,14 @@
 {
     "name": "fastwebmedia/uk-mobile-validator",
     "description": "Checks and formats numbers into valid UK Mobile Numbers (In Local and International Format)",
+    "license": "MIT",
     "authors": [
         {
             "name": "Fast Web Media Ltd",
             "email": "packages@fastwebmedia.com"
         }
     ],
+
     "require": {
         "php": ">=5.4.0"
     },
