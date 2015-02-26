@@ -3,3 +3,4 @@ composer.phar
 composer.lock
 src/config/eagle-eye.php
 .DS_Store
+/.idea

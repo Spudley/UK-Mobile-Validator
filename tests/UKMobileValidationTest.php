@@ -1,11 +1,13 @@
-<?php namespace Fastwebmedia\UKMobileValidator;
+<?php
+
+namespace Fastwebmedia\UKMobileValidator;
 
 /**
  * @group fwm
  * @group fwm.ukmobilevalidator
  * 
  */
-class UKMobileValidatorTest extends \Orchestra\Testbench\TestCase {
+class UKMobileValidatorTest extends \PHPUnit_Framework_TestCase {
 	public static function provider_for_it_validates_a_mobile_with_valid_params()
 	{
 		return array(
@@ -138,5 +140,24 @@ public static function provider_for_it_formats_mobile_number_correctly()
 		
 		$this->assertTrue($result);
 	}
+
+    public static function provider_for_valid_uk_phone_numbers()
+    {
+        return array(
+            array('0161 4123895'),
+            array('9123495'),
+            array('+44041238959')
+        );
+    }
+
+    /**
+     * @dataProvider provider_for_valid_uk_phone_numbers
+     * @test
+     */
+    public function it_should_allow_valid_uk_phone_numbers($number)
+    {
+        $result = UKMobileValidator::validPhoneNumber($number);
+        $this->assertTrue($result);
+    }
 
 }
