@@ -18,7 +18,7 @@ class UKMobileValidator
      */
     public static function validMobileNumber($value)
     {
-        return preg_match('/^(\+44|0044|44|0)7\d{9}$/', preg_replace('/\s+/', '', $value)) === 1;
+        return preg_match('/^(\+44|0044|44|0)7[1-9]\d{8}$/', preg_replace('/\s+/', '', $value)) === 1;
     }
 
     /**
@@ -39,7 +39,7 @@ class UKMobileValidator
      */
     public static function validMobileNumberInternational($value)
     {
-        return preg_match('/^\+447\d{9}$/', preg_replace('/\s+/', '', $value)) === 1;
+        return preg_match('/^\+447[1-9]\d{8}$/', preg_replace('/\s+/', '', $value)) === 1;
     }
     
     

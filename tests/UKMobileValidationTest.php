@@ -32,6 +32,24 @@ class UKMobileValidatorTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue($result);
 	}
 
+	public static function provider_for_it_rejects_an_invalid_mobile()
+	{
+		return array(
+			array('07056 294847'),      //070... is not a mobile number!
+			array('08456 294847'),
+		);
+	}
+
+	/**
+	 * @dataProvider provider_for_it_rejects_an_invalid_mobile
+	 * @test
+	 */
+	public function it_rejects_an_invalid_mobile($mobileNumber)
+	{
+		$result = UKMobileValidator::validMobileNumber($mobileNumber);
+		$this->assertFalse($result);
+	}
+
 	public static function provider_for_it_validates_a_mobile_with_invalid_params()
 	{
 		return array(
@@ -77,6 +95,7 @@ class UKMobileValidatorTest extends \PHPUnit_Framework_TestCase {
 			array('00447956 294847'),
 			array('+4407956 294 847'),
 			array('+4407956294847'),
+			array('+447056294847'),
 		);
 	}
 
@@ -86,7 +105,7 @@ class UKMobileValidatorTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function it_validates_a_fq_mobile_with_invalid_params($mobileNumber)
 	{
-		$result = $result = UKMobileValidator::validMobileNumberInternational($mobileNumber);
+		$result = UKMobileValidator::validMobileNumberInternational($mobileNumber);
 		$this->assertFalse($result);
 	}
 
@@ -96,7 +115,7 @@ class UKMobileValidatorTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function it_validates_a_mobile_with_invalid_params($mobileNumber)
 	{
-		$result = $result = UKMobileValidator::validMobileNumberInternational($mobileNumber);
+		$result = UKMobileValidator::validMobileNumberInternational($mobileNumber);
 		$this->assertFalse($result);
 	}
 	
